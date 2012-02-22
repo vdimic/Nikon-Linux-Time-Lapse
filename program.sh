@@ -8,26 +8,19 @@
     GPHOTO=gphoto2
 
     # delta time between snapshots in seconds
-    DELTA=10
+    DELTA=3
 
     $GPHOTO --auto-detect
-    #$GPHOTO --delete-all-files
     
-    FNAME=`img`
-    FEXT=`.jpg`
-    
+    FNAME=img
+    FEXT=.jpg
     COUNT=1000
-
 
     while [ 1 ] ; do
         X1=`date +%s`
         X2=$(($DELTA+$X1))
         
         $GPHOTO --capture-image-and-download --filename  $FNAME$COUNT$FEXT
-
-#	$GPHOTO --capture-image-and-download
-#       $GPHOTO --get-all-files
-#       $GPHOTO --delete-all-files
 
 	COUNT=$(($COUNT+1))
 
